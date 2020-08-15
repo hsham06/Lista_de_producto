@@ -33,31 +33,6 @@ public class Adapter extends ArrayAdapter<ModelClass>    {
          mResource= resource;
     }
 
-    @NonNull
-    @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        nProducto = getItem(position).getnProducto();
-        nCantidad = getItem(position).getnCantidad();
-        nDescripcion = getItem(position).getnDescripcion();
-        nPrecio = getItem(position).getnPrecio();
-
-        ModelClass modelClass = new ModelClass(nProducto,nCantidad,nDescripcion,nPrecio);
-
-        LayoutInflater inflater= LayoutInflater.from(mContext);
-        convertView= inflater.inflate(mResource, parent, false);
-
-        TextView producto = convertView.findViewById(R.id.producto2);
-        TextView cantidad = convertView.findViewById(R.id.cantidad2);
-        TextView description = convertView.findViewById(R.id.descripcion2);
-        TextView precio = convertView.findViewById(R.id.precio2);
-
-        producto.setText(nProducto);
-        cantidad.setText(nCantidad);
-        description.setText(nDescripcion);
-        precio.setText(nPrecio);
-        return convertView;
-
-    }
 
 
 }

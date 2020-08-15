@@ -13,7 +13,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class AddProduc1 extends AppCompatActivity {
 
     EditText producto, cantidad, descripcion, precio;
-    String nProducto, nCantidad, nDescripcion, nPrecio;
+    String nProducto, nCantidad, nDescripcion, nPrecio, datos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,13 +47,12 @@ public class AddProduc1 extends AppCompatActivity {
 
         private void storeNewUserData() {
            DatabaseReference rootnote;
-           rootnote = FirebaseDatabase.getInstance().getReference("Producto");
+           rootnote = FirebaseDatabase.getInstance().getReference("Producto").push();
+
+            datos = "Producto: "+ nProducto +"        \t\t\t\t  $" + nPrecio + "  \nCantidad: " + nCantidad +"\nDescripcion: " + nDescripcion ;
+            rootnote.setValue(datos);
 
 
-
-            userHelperClass helperClass = new userHelperClass(nProducto, nCantidad,nDescripcion,nPrecio);
-            // reference.setValue("first commit");
-            rootnote.child(nProducto).setValue(helperClass);
 
         }
 

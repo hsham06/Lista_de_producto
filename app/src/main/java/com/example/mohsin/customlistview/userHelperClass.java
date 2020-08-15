@@ -11,6 +11,8 @@ public class userHelperClass {
         this.nPrecio = nPrecio;
     }
 
+
+
     public String getnProducto() {
         return nProducto;
     }
